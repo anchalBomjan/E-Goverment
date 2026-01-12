@@ -3,6 +3,8 @@ from . models import Person
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login
+from googletrans import Translator
+
 def home(request):
     return render(request,'home.html')       
 def details(request):
@@ -33,11 +35,20 @@ def contact(request):
         mothername = request.POST['mothername']
         citizenshipnumber = request.POST['citizenshipnumber']
         licensenumber = request.POST['licensenumber']
+
+        translator = Translator()
+        fname_nepali = translator.translate(fname, src='en', dest='ne').text
+        lname_nepali = translator.translate(lname, src='en', dest='ne').text
+        paddress_nepali = translator.translate(paddress, src='en', dest='ne').text
+        taddress_nepali = translator.translate(taddress, src='en', dest='ne').text
+        fathername_nepali = translator.translate(fathername, src='en', dest='ne').text
+        mothername_nepali = translator.translate(mothername, src='en', dest='ne').text
+
         if len(fname)<2 or len(lname)<2 or len(email)<13 or len(phone)!=10 or len(citizenshipnumber)<8 or len(licensenumber)<5:
             messages.error(request,"दिइयको डेटा सहि छैन")
         
         elif vehicle=='bike' or vehicle=='car' or vehicle=='bus' or vehicle=='taxi':
-            person=Person(first_name=fname, last_name=lname, email=email, permanent_address=paddress, temporary_address=taddress, vehicle=vehicle, phone=phone, father_name=fathername, mother_name=mothername, citizenship=citizenshipnumber, license_no=licensenumber)
+            person=Person(first_name=fname_nepali, last_name=lname_nepali, email=email, permanent_address=paddress_nepali, temporary_address=taddress_nepali, vehicle=vehicle, phone=phone, father_name=fathername_nepali, mother_name=mothername_nepali, citizenship=citizenshipnumber, license_no=licensenumber)
             person.save()
             messages.success(request,"एड्मिन! डाटा सफलतापूर्वक पेश गरीएको छ")
         

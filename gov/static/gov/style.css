@@ -35,13 +35,14 @@ body {
 }
 
 .navbar-logo {
-
-    height: 50px;
-
-    width: 50px;
-
-    margin-right: 3px;
-
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 
