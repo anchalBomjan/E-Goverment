@@ -1,7 +1,7 @@
 # E-Goverment
 
 
-Python 3.12.10 Django 5.x SQL Server
+Python 3.12.10 Django 6.0.1 SQL Server
 
 💻 UI Libraries & Frameworks  
 ![Python](https://img.shields.io/badge/Python-3.12.10-blue?style=for-the-badge&logo=python&logoColor=white)
@@ -12,7 +12,12 @@ Python 3.12.10 Django 5.x SQL Server
 
 
 🔧 Tooling  
-
+install python 3.12.10 and django 6.0.1
 
 🛢️ Databases  
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-0078D6?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+-------------------------------------
+1) After installing all the necessary packages, you must create a superadmin account through the CLI/Command Prompt.
+
+2) After that, you need to create an account for other users who will be able to log in from the UI. This account will be supported through the given ports/admin.
+
